@@ -4,6 +4,18 @@
 #include <ctype.h>
 #include "array_void.h"
 
+Object find_sum(Object num1, Object num2) {
+  int sum = *(int *)num1 +  *(int *)num2;
+  return save_number(sum);
+};
+
+Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer) {
+  for(int i = 0; i < src->length; i++) {
+    init = (*reducer)(init,src->array[i]);
+  }
+  return init;
+};
+
 Bool is_vowel(Object letter) {
   char ch = tolower(*(char *)letter);
   return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';

@@ -30,6 +30,7 @@ int main(void) {
   MapperVoid mappers[] = {&increment_by_one,&convert_to_lower_case};
   Display_data displayers[] = {&display_num,&display_char};
   PredicateVoid predicates[] = {&is_even_num,&is_vowel};
+  ReducerVoid reducer = &find_sum;
 
   src->array[0] = save_character('X');
   src->array[1] = save_character('Y');
@@ -40,9 +41,8 @@ int main(void) {
   printf("Character list : \n");
   display_void_array(src,displayers[1]);
 
-  printf("Charters After conversion to lower case :\n");
+  printf("Characters After conversion to lower case :\n");
   display_void_array(result,displayers[1]);
-  
 
   printf("Numbers list : \n");
   src = create_void_array(3);
@@ -52,8 +52,12 @@ int main(void) {
   display_void_array(src,displayers[0]);
 
   printf("Numbers after incremented by one : \n");
-  result = map_void(src, mappers[0]);
+  result = map_void(src,mappers[0]);
   display_void_array(result,displayers[0]);
+
+  printf("Sum of all Numbers in the list\n");
+  Object sum = reduce_void(src,save_number(0),reducer);
+  printf("%d \n",*(int *)sum);
 
   printf("All Even numbers in the list :\n");
   result = filter_void(src,predicates[0]);

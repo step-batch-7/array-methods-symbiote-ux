@@ -21,10 +21,10 @@ Bool is_vowel(Object letter);
 Bool is_even_num(Object num);
 Object increment_by_one(Object num);
 Object convert_to_lower_case(Object letter);
+Object find_sum(Object num1, Object num2);
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper);
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate);
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer);
-
 
 ArrayVoid_ptr create_void_array(int length);
 void display_num(Object num);
