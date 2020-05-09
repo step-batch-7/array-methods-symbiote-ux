@@ -22,5 +22,8 @@ int main(void) {
   Array_ptr even_num_list = filter(numbers,predicate);
   printf("Even Numbers in the list:\n");
   display_numbers(even_num_list);
+  Reducer reducer = &calc_sum;
+  int sum = reduce(numbers,0,reducer);
+  printf("Sum of numbers : %d \n",sum);
   return 0;
 }

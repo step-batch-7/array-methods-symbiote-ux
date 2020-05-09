@@ -1,6 +1,17 @@
 #include<stdlib.h>
 #include "array.h"
 
+int calc_sum(int num1, int num2) {
+  return num1 + num2;
+};
+
+int reduce(Array_ptr src, int init, Reducer reducer) {
+  for(int i = 0; i < src->length; i++) {
+    init = (*reducer)(init,src->array[i]);
+  }
+  return init;
+};
+
 Bool is_even(int num) {
   return num % 2 == 0;
 };
