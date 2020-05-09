@@ -4,7 +4,7 @@
 
 void assert_reduce(void) {
   printf("Reduce\n");
-  printf("should reduce the empty list\n");
+  printf("should give initial value for the empty list\n");
   Array_ptr numbers = create_array(0);
   Reducer reducer = &calc_sum;
   int sum = reduce(numbers,0,reducer);
