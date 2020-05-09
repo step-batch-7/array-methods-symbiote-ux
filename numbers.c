@@ -4,27 +4,27 @@
 #include "array_void.h"
 
 int main(void) {
-  // Array_ptr numbers = create_array(3);
-  // numbers->array[0] = 5;
-  // numbers->array[1] = 6;
-  // numbers->array[2] = 7;
+  Array_ptr numbers = create_array(3);
+  numbers->array[0] = 5;
+  numbers->array[1] = 6;
+  numbers->array[2] = 7;
 
-  // printf("Numbers in the list are: \n");
-  // display_numbers(numbers);
+  printf("Numbers in the list are: \n");
+  display_numbers(numbers);
 
-  // Mapper mapper = &find_square;
-  // Array_ptr result = map(numbers,mapper);
-  // printf("Square of each number in the list is:\n");
-  // display_numbers(result);
+  Mapper mapper1 = &find_square;
+  Array_ptr result1 = map(numbers,mapper1);
+  printf("Square of each number in the list is:\n");
+  display_numbers(result1);
 
-  // Predicate predicate = &is_even;
-  // Array_ptr even_num_list = filter(numbers,predicate);
-  // printf("Even Numbers in the list:\n");
-  // display_numbers(even_num_list);
+  Predicate predicate1 = &is_even;
+  Array_ptr even_num_list = filter(numbers,predicate1);
+  printf("Even Numbers in the list:\n");
+  display_numbers(even_num_list);
   
-  // Reducer reducer = &calc_sum;
-  // int sum = reduce(numbers,0,reducer);
-  // printf("Sum of numbers : %d \n",sum);
+  Reducer reducer1 = &calc_sum;
+  int sum1 = reduce(numbers,0,reducer1);
+  printf("Sum of numbers : %d \n",sum1);
 
   ArrayVoid_ptr src = create_void_array(3);
   MapperVoid mappers[] = {&increment_by_one,&convert_to_lower_case};
