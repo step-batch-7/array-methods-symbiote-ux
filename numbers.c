@@ -3,6 +3,12 @@
 #include "array.h"
 #include "array_void.h"
 
+Object save_character(char letter) {
+  char *result = malloc(sizeof(char));
+  *result = letter;
+  return result;
+};
+
 void create_num_list(ArrayVoid_ptr src) {
   for(int i = 0; i < src->length; i++) {
     int *num = malloc(sizeof(int));
@@ -44,12 +50,27 @@ int main(void) {
   create_num_list(src);
   MapperVoid mapper = &increment_by_one;
   Display_data displayer = &display_num;
-  
+  ArrayVoid_ptr result = map_void(src, mapper);
+
   printf("Numbers list : \n");
   display_void_array(src,displayer);
 
-  ArrayVoid_ptr result1 = map_void(src, mapper);
   printf("Numbers after incremented by one : \n");
-  display_void_array(result1,displayer);
+  display_void_array(result,displayer);
+
+  src = create_void_array(3);
+  src->array[0] = save_character('X');
+  src->array[1] = save_character('Y');
+  src->array[2] = save_character('A');
+
+  mapper = &convert_to_lower_case;
+  result = map_void(src, mapper);
+  displayer = &display_char;
+
+  printf("Character list : \n");
+  display_void_array(src,displayer);
+
+  printf("Charters After conversion to lower case :\n");
+  display_void_array(result,displayer);
   return 0;
 }

@@ -1,6 +1,13 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include <ctype.h>
 #include "array_void.h"
+
+Object convert_to_lower_case(Object letter) {
+  char *result = malloc(sizeof(char));
+  *result = tolower(*(char *)letter);
+  return result;
+};
 
 Object increment_by_one(Object num) {
   int *result = malloc(sizeof(int));
@@ -21,6 +28,10 @@ ArrayVoid_ptr create_void_array(int length) {
   list->array = malloc(sizeof(Object) * length);
   list->length = length;
   return list;
+};
+
+void display_char(Object letter) {
+  printf("%c \n", *(char *)letter);
 };
 
 void display_num(Object num) {

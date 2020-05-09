@@ -18,6 +18,7 @@ typedef ArrayVoid *ArrayVoid_ptr;
 typedef void (*Display_data)(Object);
 
 Object increment_by_one(Object num);
+Object convert_to_lower_case(Object letter);
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper);
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate);
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer);
@@ -25,6 +26,7 @@ Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer);
 
 ArrayVoid_ptr create_void_array(int length);
 void display_num(Object num);
+void display_char(Object letter);
 void display_void_array(ArrayVoid_ptr result,Display_data displayer );
 
 #endif
