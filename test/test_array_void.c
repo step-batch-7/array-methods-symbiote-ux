@@ -2,6 +2,27 @@
 #include<stdio.h>
 #include "../array_void.h"
 
+void assert_reduce_void(void) {
+  printf("Reduce_Void\n");
+
+  printf("should give initial value if the list is empty\n");
+  ArrayVoid_ptr src = create_void_array(0);
+  ReducerVoid reducer = &find_sum;
+  Object sum = reduce_void(src,save_number(0),reducer);
+  assert(*(int *)sum == 0);
+  printf("Passed\n");
+
+  printf("should give the sum of all numbers in the list\n");
+  src = create_void_array(3);
+  src->array[0] = save_number(5);
+  src->array[1] = save_number(6);
+  src->array[2] = save_number(8);
+  sum = reduce_void(src,save_number(0),reducer);
+  assert(*(int *)sum == 19);
+  printf("Passed\n");
+};
+
+
 void assert_filter_void(void) {
   printf("Filter_void\n");
   ArrayVoid_ptr src = create_void_array(3);
@@ -60,6 +81,6 @@ void assert_map_void(void) {
 int main(void) {
   assert_map_void();
   assert_filter_void();
-  // assert_reduce_void();
+  assert_reduce_void();
   return 0;
 }
