@@ -18,5 +18,9 @@ int main(void) {
   Array_ptr result = map(numbers,mapper);
   printf("Square of each number in the list is:\n");
   display_numbers(result);
+  Predicate predicate = &is_even;
+  Array_ptr even_num_list = filter(numbers,predicate);
+  printf("Even Numbers in the list:\n");
+  display_numbers(even_num_list);
   return 0;
 }

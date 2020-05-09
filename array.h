@@ -20,6 +20,7 @@ typedef Array *Array_ptr;
 
 Array_ptr create_array(int length);
 int find_square(int value);
+Bool is_even(int num);
 Array_ptr map(Array_ptr src, Mapper mapper);
 Array_ptr filter(Array_ptr src, Predicate predicate);
 int reduce(Array_ptr src, int init, Reducer reducer);

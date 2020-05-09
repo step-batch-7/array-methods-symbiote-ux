@@ -1,6 +1,25 @@
 #include<stdlib.h>
 #include "array.h"
 
+Bool is_even(int num) {
+  return num % 2 == 0;
+};
+
+Array_ptr filter(Array_ptr src, Predicate predicate) {
+  int count = 0,index= 0;
+  for(int i = 0; i < src->length; i++) {
+    if((*predicate)(src->array[i])) count++;
+  }
+  Array_ptr result = create_array(count);
+  for(int i = 0; i < src->length; i++) {
+    if((*predicate)(src->array[i])) {
+      result->array[index] = src->array[i];
+      index++;
+    }
+  }
+  return result;
+};
+
 int find_square(int value) {
   return value * value;
 };
