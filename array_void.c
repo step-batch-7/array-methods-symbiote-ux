@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include<string.h>
 #include <string.h> 
 #include <ctype.h>
 #include "array_void.h"
@@ -30,15 +31,15 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate) {
   int count = 0;
   for(int i = 0; i < src->length; i++) {
     if((*predicate)(src->array[i])) {
-      list[count] = src->array[i];
+      list[count] = malloc(sizeof(Object));
+      memcpy(list[count],src->array[i],sizeof(Object));
       count++;
     }
   }
    ArrayVoid_ptr result = create_void_array(count);
    for(int i = 0; i < count; i++) {
-     result->array[i] = malloc(sizeof(Object));
-     result->array[i] = list[i];
-     }
+   result->array[i] = list[i];
+   }
   return result;
 };
 
