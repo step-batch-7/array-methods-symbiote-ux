@@ -4,7 +4,6 @@
 
 void assert_reduce_void(void) {
   printf("Reduce_Void\n");
-
   printf("should give initial value if the list is empty\n");
   ArrayVoid_ptr src = create_void_array(0);
   ReducerVoid reducer = &find_sum;
