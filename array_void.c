@@ -44,16 +44,16 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate) {
 };
 
 
-Object convert_to_lower_case(Object letter) {
-  char *result = malloc(sizeof(char));
-  *result = tolower(*(char *)letter);
-  return result;
+Object convert_to_lower_case(Object value) {
+  char *letter = malloc(sizeof(char));
+  *letter = tolower(*(char *)value);
+  return letter;
 };
 
-Object increment_by_one(Object num) {
-  int *result = malloc(sizeof(int));
-  *result = *(int *)num + 1;
-  return result;
+Object increment_by_one(Object value) {
+  int *num = malloc(sizeof(int));
+  *num = *(int *)value + 1;
+  return num;
 };
 
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper) {
@@ -71,22 +71,16 @@ ArrayVoid_ptr create_void_array(int length) {
   return list;
 };
 
-void display_numbers(Array_ptr list) {
-  for(int i = 0; i < list->length; i++) {
-    printf("%d \n",list->array[i]);
-  }
+Object save_number(int value) {
+  int *num = malloc(sizeof(int));
+  *num = value;
+  return num;
 };
 
-Object save_number(int num) {
-  char *result = malloc(sizeof(int));
-  *result = num;
-  return result;
-};
-
-Object save_character(char letter) {
-  char *result = malloc(sizeof(char));
-  *result = letter;
-  return result;
+Object save_character(char value) {
+  char *letter = malloc(sizeof(char));
+  *letter = value;
+  return letter;
 };
 
 void display_char(Object letter) {
@@ -97,7 +91,7 @@ void display_num(Object num) {
   printf("%d \n",*(int *)num);
 };
 
-void display_void_array(ArrayVoid_ptr result,Display_data displayer ) {
+void display_array(ArrayVoid_ptr result,Display_data displayer ) {
   for(int i = 0; i < result->length; i++) {
     (*displayer)(result->array[i]);
   }

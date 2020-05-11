@@ -39,21 +39,21 @@ int main(void) {
   ArrayVoid_ptr result = map_void(src, mappers[1]);
 
   printf("Character list : \n");
-  display_void_array(src,displayers[1]);
+  display_array(src,displayers[1]);
 
   printf("Characters After conversion to lower case :\n");
-  display_void_array(result,displayers[1]);
+  display_array(result,displayers[1]);
 
   printf("Numbers list : \n");
   src = create_void_array(3);
   src->array[0] = save_number(5);
   src->array[1] = save_number(6);
   src->array[2] = save_number(8);
-  display_void_array(src,displayers[0]);
+  display_array(src,displayers[0]);
 
   printf("Numbers after incremented by one : \n");
   result = map_void(src,mappers[0]);
-  display_void_array(result,displayers[0]);
+  display_array(result,displayers[0]);
 
   printf("Sum of all Numbers in the list\n");
   Object sum = reduce_void(src,save_number(0),reducer);
@@ -61,7 +61,7 @@ int main(void) {
 
   printf("All Even numbers in the list :\n");
   result = filter_void(src,predicates[0]);
-  display_void_array(result,displayers[0]);
+  display_array(result,displayers[0]);
 
   src = create_void_array(5);
   src->array[0] = save_character('A');
@@ -71,10 +71,10 @@ int main(void) {
   src->array[4] = save_character('e');
 
   printf("Character list : \n");
-  display_void_array(src,displayers[1]);
+  display_array(src,displayers[1]);
 
   result = filter_void(src,predicates[1]);
   printf("Vowels in the list :\n");
-  display_void_array(result,displayers[1]);
+  display_array(result,displayers[1]);
   return 0;
 }

@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 #include "array.h"
 
 int calc_sum(int num1, int num2) {
@@ -48,4 +49,10 @@ Array_ptr create_array(int length) {
   number_list->array = malloc(sizeof(int) * length);
   number_list->length = length;
   return number_list;
+};
+
+void display_numbers(Array_ptr list) {
+  for(int i = 0; i < list->length; i++) {
+    printf("%d \n",list->array[i]);
+  }
 };

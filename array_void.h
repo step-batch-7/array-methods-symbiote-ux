@@ -31,7 +31,6 @@ void display_num(Object num);
 void display_char(Object letter);
 Object save_number(int num);
 Object save_character(char letter);
-void display_numbers(Array_ptr list);
-void display_void_array(ArrayVoid_ptr result,Display_data displayer );
+void display_array(ArrayVoid_ptr result,Display_data displayer );
 
 #endif

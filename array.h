@@ -19,6 +19,7 @@ typedef struct
 
 typedef Array *Array_ptr;
 
+void display_numbers(Array_ptr list);
 Array_ptr create_array(int length);
 int find_square(int value);
 Bool is_even(int num);
